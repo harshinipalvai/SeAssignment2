@@ -1,0 +1,20 @@
+<form class="form-inline my-2 my-lg-0">
+  <div class="md-form my-4">
+    <input class="form-control mr-sm-2" name="city" [(ngModel)]="city" type="text" placeholder="Search"
+      aria-label="Search">
+  </div>
+  <button type="button" class="btn btn-outline-primary" (click)="searchRestaurants()"> Search </button>
+</form>
+
+<div class="card-columns">
+  <div class="card border-info mb-3" *ngFor="let restaurant of restaurants">
+    <div class="card-header">
+      <h5 class="card-title">{{restaurant.name}}</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{restaurant.formatted_address}}</p>
+      <a [routerLink]="['/restaurantprofile']" routerLinkActive="router-link-active"
+        (click)="showprofile(restaurant)">Know more</a>
+    </div>
+  </div>
+</div>
